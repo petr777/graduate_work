@@ -11,6 +11,13 @@ make start
 make stop
 ```
 
+#### Deploy Flow
+Изменить настроки ``flow`` можно тут ```deploy/video_encoding.yaml```
+после чего необходимо выполнить команду.
+```bash
+make apply-deploy
+```
+
 #### Worker
 ```bash
 make agent-start
