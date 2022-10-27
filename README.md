@@ -1,5 +1,6 @@
 # ETL video-encoding
 
+![alt text](arch/arch.jpg)
 #### Start
 ```bash
 make start
