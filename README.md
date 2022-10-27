@@ -13,6 +13,16 @@ make stop
 
 #### Deploy Flow
 Изменить настроки ``flow`` можно тут ```deploy/video_encoding.yaml```
+
+```
+parameters: {
+  "etl_schema":{
+    'destination_folder': 'rutube',
+    'convert_schema': {
+      "size": "1920x1080", "vcodec": "libx264", "acodec": "aac"}
+  }
+}
+```
 после чего необходимо выполнить команду.
 ```bash
 make apply-deploy
