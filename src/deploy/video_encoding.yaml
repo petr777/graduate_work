@@ -8,8 +8,12 @@ version: b110b9ef4fb4ae84906a955ca5197382
 work_queue_name: dev
 tags: []
 parameters: {
-  "etl_schema":
-    {'destination_folder': 'rutube', 'convert_schema': {"size": "1920x1080", "vcodec": "libx264", "acodec": "aac"}}}
+  "etl_schema":{
+    'destination_folder': 'rutube',
+    'convert_schema': {
+      "size": "1920x1080", "vcodec": "libx264", "acodec": "aac"}
+  }
+}
 schedule:
   interval: 60.0
   anchor_date: '2022-10-16T13:01:02.558302+00:00'
