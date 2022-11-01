@@ -1,9 +1,11 @@
 import hashlib
 import json
 from enum import Enum
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from typing import Union, Optional
 from settings import settings
+from uuid import UUID
+from pathlib import Path
 
 
 class Format(str, Enum):
@@ -65,3 +67,14 @@ class MediaInfoSchema(BaseModel):
     vcodec: str
     acodec: str
     format: str
+
+    @validator('duration')
+    def result_check(cls, v):
+        return round(v, 7)
+
+
+class MediaInfoDB(MediaInfoSchema):
+    id: UUID
+    bucket: str
+    filepath: Path
+    movies_id: UUID

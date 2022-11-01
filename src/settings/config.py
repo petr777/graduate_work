@@ -66,6 +66,7 @@ class Settings(Base):
 
     base_dir: Path = BASE_DIR
     temporary_dir: Path = BASE_DIR / 'serverok'
+    batch_size: int = 3
 
     pg: SettingsPG = SettingsPG()
     aws: SettingsAWS = SettingsAWS()
