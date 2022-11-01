@@ -7,7 +7,7 @@ from models import MediaOriginalModel, MediaConvertModel
 from extract import extracted_task
 from convert import converted_task
 from upload import upload_task
-from schemas import ETLSchema
+from schemas import ETLSchema, MediaInfoDB
 from services.media_info import MediaInfoServices
 from settings import settings
 from prefect.futures import PrefectFuture
@@ -21,7 +21,7 @@ async def get_state_task(task_future: PrefectFuture):
         return 'Error'
 
 
-async def video_encoding_proccess(item, etl_schema: ETLSchema):
+async def video_encoding_proccess(item: MediaInfoDB, etl_schema: ETLSchema):
 
     temp_file_future = await extracted_task.submit(item.filepath, item.bucket)
     if await get_state_task(temp_file_future) == 'Success':
@@ -93,7 +93,7 @@ async def video_encoding(etl_schema: ETLSchema):
 
     logger.info('There are no conversion tasks for the specified parameters')
 
-#
+
 # loop = asyncio.new_event_loop()
 # loop.run_until_complete(video_encoding(
 #     {
