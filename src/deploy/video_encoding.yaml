@@ -9,13 +9,13 @@ work_queue_name: dev
 tags: []
 parameters: {
   "etl_schema":{
-    'destination_folder': 'rutube',
+    'destination_folder': 'medium',
     'convert_schema': {
-      "size": "1920x1080", "vcodec": "libx264", "acodec": "aac"}
+      "size": "1280x720", "vcodec": "libx264", "acodec": "aac"}
   }
 }
 schedule:
-  interval: 60.0
+  interval: 360
   anchor_date: '2022-10-16T13:01:02.558302+00:00'
   timezone: UTC
 infra_overrides: {}
